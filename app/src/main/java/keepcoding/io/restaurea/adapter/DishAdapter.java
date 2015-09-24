@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,7 +45,8 @@ public class DishAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        LinearLayout allergensLayout;
+
+        GridView dishAllergensGrid;
         ImageView dishImage;
         TextView dishName;
         TextView dishPrice;
@@ -62,7 +64,7 @@ public class DishAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.dish_item, null);
             holder = new ViewHolder();
 
-            holder.allergensLayout = (LinearLayout) convertView.findViewById(R.id.dishAllergens);
+            holder.dishAllergensGrid = (GridView) convertView.findViewById(R.id.allergensGrid);
             holder.dishPrice = (TextView) convertView.findViewById(R.id.dishPrice);
             holder.dishName = (TextView) convertView.findViewById(R.id.dishName);
             holder.dishImage = (ImageView) convertView.findViewById(R.id.dishImage);
@@ -77,27 +79,10 @@ public class DishAdapter extends BaseAdapter {
         holder.dishName.setText(item.getName());
         holder.dishPrice.setText(String.valueOf(item.getPrice()) + "€");
 
-        //if(item.getAllergenList().size() != 0) {
-        holder.allergensLayout.removeAllViewsInLayout();
-        for (String allergen : item.getAllergenList()) {
-            ImageView img = new ImageView(mContext);
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    (int)mContext.getResources().getDimension(R.dimen.dimen_allergen),
-                    (int)mContext.getResources().getDimension(R.dimen.dimen_allergen));
-            img.setLayoutParams(params);
-
-            String uri = "@drawable/" + allergen;
-            int imageResource = mContext.getResources().getIdentifier(uri, null, mContext.getPackageName());
-
-            Drawable res = ContextCompat.getDrawable(mContext, imageResource);
-            img.setImageDrawable(res);
-
-            holder.allergensLayout.addView(img);
-        }
-        //}else{
-        //    holder.allergensLayout.removeAllViewsInLayout();
-        //}
+        AllergenAdapter adapter = new AllergenAdapter(mContext, item.getAllergenList(), AllergenAdapter.SIZE_SMALL);
+        holder.dishAllergensGrid.setAdapter(adapter);
+        holder.dishAllergensGrid.setEnabled(false);
 
         Picasso.with(mContext)
                 .load(item.getPhoto())

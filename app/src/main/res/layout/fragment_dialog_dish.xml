@@ -39,13 +39,15 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp" />
 
-            <LinearLayout
-                android:id="@+id/dishAllergens"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dishName"
-                android:padding="10dp"></LinearLayout>
+            <GridView android:id="@+id/allergensGrid"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:numColumns="auto_fit"
+                      android:columnWidth="@dimen/column_width_allergens_grid_big"
+                      android:horizontalSpacing="5dp"
+                      android:verticalSpacing="5dp"
+                      android:stretchMode="columnWidth"
+                      android:layout_below="@+id/dishName" />
 
             <EditText
                 android:id="@+id/txtObservaciones"
@@ -54,7 +56,7 @@
                 android:gravity="top"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:layout_below="@+id/dishAllergens"/>
+                android:layout_below="@+id/allergensGrid"/>
 
             <Button
                 android:id="@+id/btnAddDish"

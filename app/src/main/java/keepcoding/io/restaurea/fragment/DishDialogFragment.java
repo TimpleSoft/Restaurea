@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import keepcoding.io.restaurea.R;
+import keepcoding.io.restaurea.adapter.AllergenAdapter;
 import keepcoding.io.restaurea.application.RestaureaApplication;
 import keepcoding.io.restaurea.model.Dish;
 
@@ -52,23 +54,9 @@ public class DishDialogFragment extends DialogFragment {
 
         txtObservaciones = (EditText) view.findViewById(R.id.txtObservaciones);
 
-        LinearLayout allergensLayout = (LinearLayout) view.findViewById(R.id.dishAllergens);
-        for (String allergen : mDish.getAllergenList()) {
-            ImageView img = new ImageView(getActivity());
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    (int)getActivity().getResources().getDimension(R.dimen.dimen_allergen_fragment),
-                    (int)getActivity().getResources().getDimension(R.dimen.dimen_allergen_fragment));
-            img.setLayoutParams(params);
-
-            String uri = "@drawable/" + allergen;
-            int imageResource = getActivity().getResources().getIdentifier(uri, null, getActivity().getPackageName());
-
-            Drawable res = ContextCompat.getDrawable(getActivity(), imageResource);
-            img.setImageDrawable(res);
-
-            allergensLayout.addView(img);
-        }
+        GridView allergensGrid = (GridView) view.findViewById(R.id.allergensGrid);
+        AllergenAdapter adapter = new AllergenAdapter(getActivity(), mDish.getAllergenList(), AllergenAdapter.SIZE_BIG);
+        allergensGrid.setAdapter(adapter);
 
         ImageView imgTeam = (ImageView) view.findViewById(R.id.dishImage);
         Picasso.with(getActivity())
@@ -91,7 +79,7 @@ public class DishDialogFragment extends DialogFragment {
         if(!mIsEditable){
             btnAddDish.setVisibility(View.GONE);
             txtObservaciones.setEnabled(false);
-            txtObservaciones.setText(mDish.getObservaciones());
+            txtObservaciones.setText("Observaciones: " + mDish.getObservaciones());
         }
 
         return view;

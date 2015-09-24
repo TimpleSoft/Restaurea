@@ -5,4 +5,6 @@
 
     <dimen name="dimen_allergen">30dp</dimen>
     <dimen name="dimen_allergen_fragment">60dp</dimen>
+    <dimen name="column_width_allergens_grid_big">50dp</dimen>
+    <dimen name="column_width_allergens_grid_small">20dp</dimen>
 </resources>

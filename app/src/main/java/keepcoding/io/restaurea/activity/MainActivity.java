@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements TablesListFragmen
                 for(int i=0; i<respJSON.length(); i++){
                     JSONObject obj = respJSON.getJSONObject(i);
 
-                    List<String> allergenList = new ArrayList<>();
+                    ArrayList<String> allergenList = new ArrayList<>();
                     JSONArray allergens = new JSONArray(obj.getString("allergens"));
                     for(int j=0; j<allergens.length(); j++){
                         allergenList.add(allergens.get(j).toString());

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:layout_width="@dimen/column_width_allergens_grid_big"
+              android:layout_height="@dimen/column_width_allergens_grid_big">
+
+    <ImageView
+        android:id="@+id/imgAllergen"
+        android:layout_width="@dimen/column_width_allergens_grid_big"
+        android:layout_height="@dimen/column_width_allergens_grid_big"
+        android:adjustViewBounds="false"
+        android:src="@drawable/mollucs"/>
+
+</RelativeLayout>

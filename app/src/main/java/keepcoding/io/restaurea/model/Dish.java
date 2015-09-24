@@ -1,5 +1,6 @@
 package keepcoding.io.restaurea.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dish {
@@ -7,10 +8,10 @@ public class Dish {
     private String mName;
     private String mPhoto;
     private float mPrice;
-    private List<String> mAllergenList;
+    private ArrayList<String> mAllergenList;
     private String mObservaciones;
 
-    public Dish(String name, String photo, float price, List<String> allergenList) {
+    public Dish(String name, String photo, float price, ArrayList<String> allergenList) {
         mName = name;
         mPhoto = photo;
         mPrice = price;
@@ -43,11 +44,11 @@ public class Dish {
         mPrice = price;
     }
 
-    public List<String> getAllergenList() {
+    public ArrayList<String> getAllergenList() {
         return mAllergenList;
     }
 
-    public void setAllergenList(List<String> allergenList) {
+    public void setAllergenList(ArrayList<String> allergenList) {
         mAllergenList = allergenList;
     }
 
