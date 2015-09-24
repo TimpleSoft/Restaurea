@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:background="#FFFFFF"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/dishImage"
+        android:layout_alignParentLeft="true"
+        android:layout_width="160dp"
+        android:layout_height="120dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/dishImage"
+        android:layout_toLeftOf="@+id/dishPrice"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/dishName"
+            android:text="@string/dish_name"
+            android:gravity="center|left"
+            android:textAlignment="gravity"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"/>
+
+        <LinearLayout
+            android:id="@+id/dishAllergens"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="7"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dishPrice"
+        android:textSize="22sp"
+        android:text="9,25 €"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"/>
+
+
+</RelativeLayout>

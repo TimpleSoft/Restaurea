@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Restaurea</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_new_table">Añadir mesa</string>
+    <string name="get_bill">Calcular la cuenta</string>
+    <string name="add_dish">Añadir plato</string>
+    <string name="dish_name">Nombre del Plato</string>
+    <string name="observations">Observaciones</string>
+    <string name="add_dish_to_table">Añadir plato a la mesa</string>
+    <string name="dish_image_content_description">Foto del plato</string>
+    <string name="loading_dishes">Cargando platos</string>
+</resources>
